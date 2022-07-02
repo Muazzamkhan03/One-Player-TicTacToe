@@ -5,4 +5,5 @@ int main(){
     std::cout<<"Welcome to 1 player tic tac toe\n"
     <<"You will be playing against the computer\n";
     game.startGame();
+
 }

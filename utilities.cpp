@@ -41,6 +41,7 @@ void XO::playGame(){
     else{
         std::cout<<"It is a tie\n";
     }
+    gameLoop();
 
 }
 
@@ -130,5 +131,23 @@ void XO::drawBoard(){
     std::cout<<" "<<temp[3]<<" | "<<temp[4]<<" | "<<temp[5]<<std::endl;
     std::cout<<"***********\n";
     std::cout<<" "<<temp[6]<<" | "<<temp[7]<<" | "<<temp[8]<<std::endl;
+
+}
+
+void XO::gameLoop(){
+    char choice;
+    again:
+    std::cout<<"Would you like to play again? Enter y for yes and n for no\n";
+    std::cin>>choice;
+    switch(choice){
+        case 'y':
+            startGame();
+            break;
+        case 'n':
+            break;
+        default:
+            std::cout<<"Invalid input\n";
+            goto again;
+    }
 
 }

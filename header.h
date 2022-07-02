@@ -21,6 +21,7 @@ class XO{
         int compMove();
         void checkWin();
         void Move(int);
+        void gameLoop();
 
 
 };
