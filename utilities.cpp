@@ -15,7 +15,7 @@ void XO::startGame(){
 void XO::playGame(){
     int move;
 
-    while(!isGameover){
+    while(!isGameover && isGameover!=-1){
         turn = Player;
         std::cout<<"Make your move\n";
         std::cin>>move;
@@ -30,11 +30,16 @@ void XO::playGame(){
             checkWin();
         }
     }
-    if(turn == Player){
-        std::cout<<"You win\n";
+    if(isGameover!=-1){
+        if(turn == Player){
+            std::cout<<"You win\n";
+        }
+        else if(turn == Computer){
+            std::cout<<"The computer wins\n";
+        }
     }
     else{
-        std::cout<<"The computer wins\n";
+        std::cout<<"It is a tie\n";
     }
 
 }
@@ -68,29 +73,32 @@ int XO::compMove(){
 
 void XO::checkWin(){
 
-    if(board[0][0] == turn && board[0][1] == turn && board[0][2] == turn){
+    if((board[0][0] == turn) && (board[0][1] == turn) && (board[0][2] == turn)){
         isGameover = turn;
     }
-    else if(board[1][0] == turn && board[1][1] == turn && board[1][2] == turn){
+    else if((board[1][0] == turn) && (board[1][1] == turn) && (board[1][2] == turn)){
         isGameover = turn;
     }
-    else if(board[2][0] == turn && board[2][1] == turn && board[2][2] == turn){
+    else if((board[2][0] == turn) && (board[2][1] == turn) && (board[2][2] == turn)){
         isGameover = turn;
     }
-    else if(board[0][0] == turn && board[1][0] == turn && board[2][0] == turn){
+    else if((board[0][0] == turn) && (board[1][0] == turn) && (board[2][0] == turn)){
         isGameover = turn;
     }
-    else if(board[0][1] == turn && board[1][1] == turn && board[2][1] == turn){
+    else if((board[0][1] == turn) && (board[1][1] == turn) && (board[2][1] == turn)){
         isGameover = turn;
     }
-    else if(board[0][2] == turn && board[1][2] == turn && board[2][2] == turn){
+    else if((board[0][2] == turn) && (board[1][2] == turn) && (board[2][2] == turn)){
         isGameover = turn;
     }
-    else if(board[0][0] == turn && board[1][1] == turn && board[2][2] == turn){
+    else if((board[0][0] == turn) && (board[1][1] == turn) && (board[2][2] == turn)){
         isGameover = turn;
     }
-    else if(board[0][2] == turn && board[1][1] == turn && board[2][0] == turn){
+    else if((board[0][2] == turn) && (board[1][1] == turn) && (board[2][0] == turn)){
         isGameover = turn;
+    }
+    else if((board[0][0]!=0)&&(board[0][1]!=0)&&(board[0][2]!=0)&&(board[1][0]!=0)&&(board[1][1]!=0)&&(board[1][2]!=0)&&(board[2][0]!=0)&&(board[2][1]!=0)&&(board[2][2]!=0)){
+        isGameover = -1;
     }
 
     
